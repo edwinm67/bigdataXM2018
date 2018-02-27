@@ -6,6 +6,44 @@
 
 ## 1 -> CONECTARSE AL CLUSTER CLOUDERA:
 
+### Por Web:
+
+* Desde un browser: http://192.168.10.115:8888 (por la Intranet via VPN)
+* Desde un browser: http://hostname.dis.eafit.edu.co (por la Internet)
+
+## 2. Realice todas las operaciones de:
+
+    * creación de directorios
+    * copiado de archivos
+    * borrado de archivos
+    * cambio de permisos
+    * descarga de archivos.
+    * etc
+
+Via la interfaz web de Hue: Files View
+
+Copiar los datos de 'datasets' para el curso, en:
+
+    /user/username/datasets
+
+a. login a cloudera
+
+![login](../uploads/cloudera1-login.png)
+
+b. File browser:
+
+![filebrowser](../uploads/cloudera-file-browser.png)
+
+c. New Directory and Upload files:
+
+![new-upload](../uploads/cloudera-newdirectory.png)
+
+d. Ejemplo despues de subir los datos:
+
+![ejemplo](../uploads/cloudera-dir-datasets.png)
+
+## 2. Gestión de archivos en HDFS via consola:
+
 ### Conectarse a la VPN
 
 ### Desde la estación Cliente Windows desde Internet:
@@ -20,22 +58,15 @@
 
       Click en "Open"
 
-      login as: xm##      (usuario asignado)
+      login as: username      (usuario asignado)
       password: ********        (password asignado)
 
 ### Desde una estación Linux o Mac desde Internet:
 
 * Abrir una terminal
 
-      user@hostname$ ssh xm##@192.168.10.115
+      user@hostname$ ssh username@192.168.10.115       (usuario asignado)
       Passoword: ***** (password asignado a cada usuario)
-
-### Por Web:
-
-* Desde un browser: http://192.168.10.115:8888 (por la Intranet via VPN)
-* Desde un browser: http://<hostname>.dis.eafit.edu.co (por la Internet)
-
-## 2. Gestión de archivos en HDFS
 
 Obtener un subconjunto de datos de prueba, de Gutenberg Digital Library
 
@@ -120,36 +151,3 @@ comandos:
     chmod [-R] mode       cambiar los permisos de un archivo
     chown …               cambiar el dueño de un archivo
     chgrp                 cambiar el grupo de un archivo
-
-## 9. Realice todas las operaciones de:
-
-    * creación de directorios
-    * copiado de archivos
-    * borrado de archivos
-    * cambio de permisos
-    * descarga de archivos.
-    * etc
-
-    Via la interfaz web de Hue: Files View
-
-## 8. RETO:
-
-Copiar el resto de datasets para el curso, en:
-
-    /user/username/datasets
-
-a. login a cloudera
-
-![login](../uploads/cloudera1-login.png)
-
-b. File browser:
-
-![filebrowser](../uploads/cloudera-file-browser.png)
-
-c. New Directory and Upload files:
-
-![new-upload](../uploads/cloudera-newdirectory.png)
-
-d. Ejemplo despues de subir los datos:
-
-![ejemplo](../uploads/cloudera-dir-datasets.png)
