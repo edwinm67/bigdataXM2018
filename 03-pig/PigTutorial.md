@@ -1,5 +1,5 @@
 # Universidad EAFIT
-# Curso Big Data - Postobon, 2018-1
+# Curso Big Data - XM, 2018-1
 # Profesor: Edwin Montoya M. – emontoya@eafit.edu.co
 
 # Resumen de https://www.tutorialspoint.com/apache_pig/index.htm
