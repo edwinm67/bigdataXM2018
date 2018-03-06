@@ -1,5 +1,5 @@
 # Universidad EAFIT
-# Curso Big Data - Postobon, 2018-1
+# Curso Big Data - XM, 2018-1
 # Profesor: Edwin Montoya M. – emontoya@eafit.edu.co
 
 # hive
@@ -131,18 +131,18 @@ beeline>LOAD DATA INPATH …
 
 ```
 En 192.168.10.115, se tiene Mysql con:
-Base de datos: “postobondb”
+Base de datos: “xmdb”
 Tabla: “username_employee” (ya existe una table llamada 'employee')
-User: postobon/postobon
-$ mysql –u postobon –p
+User: xm/xm
+$ mysql –u xm –p
 Enter password: ******
-mysql> use postobondb;
+mysql> use xmdb;
 ```
 //ingreso de datos
 ```
-$ mysql -u postobon -p
-Enter password: postobon
-mysql> use postobondb;
+$ mysql -u xm -p
+Enter password: xm
+mysql> use xmdb;
 mysql> insert into username_employee values (101, 'name1', 1800);
 mysql> insert into username_employee values (102, 'name2', 1500);
 mysql> insert into username_employee values (103, 'name3', 1000);
@@ -155,7 +155,7 @@ mysql> 
 
 //Transferir datos de una base de datos (tipo mysql) hacia HDFS:
 ```
-$ sqoop import --connect jdbc:mysql://192.168.10.115:3306/postobondb --username postobon -P --table username_employee --target-dir /user/username/mysqlOut -m 1
+$ sqoop import --connect jdbc:mysql://192.168.10.115:3306/xmdb --username xm -P --table username_employee --target-dir /user/username/mysqlOut -m 1
 ```
 
 // listar archivos:
@@ -165,13 +165,13 @@ $ hadoop fs -ls /user/username/mysqlOut
 
 // Crear tabla HIVE a partir de definición tabla Mysql:
 ```
-$ sqoop create-hive-table --connect jdbc:mysql://192.168.10.115:3306/postobondb --username postobon -P --table username_employee --hive-table database.username_emps --mysql-delimiters
+$ sqoop create-hive-table --connect jdbc:mysql://192.168.10.115:3306/xmdb --username xm -P --table username_employee --hive-table database.username_emps --mysql-delimiters
 ```
 
 // Transferir datos de una base de datos (tipo mysql) hacia HIVE vía HDFS:
 
 ```
-$ sqoop import --connect jdbc:mysql://192.168.10.115:3306/postobondb --username postobon -P --table username_employee --hive-import --hive-table database.username_emps -m 1 --mysql-delimiters
+$ sqoop import --connect jdbc:mysql://192.168.10.115:3306/xmdb --username xm -P --table username_employee --hive-import --hive-table database.username_emps -m 1 --mysql-delimiters
 ```
 
 // Poblar o llenar la tabla Hive Manualmente:
@@ -199,7 +199,7 @@ beeline> 
 
 // Crear una Tabla 'username_employee2' en Mysql con los mismos atributos de 'username_employee'
 ```
-mysql> USE postobondb;
+mysql> USE xmdb;
 mysql> CREATE TABLE username_employee2 (  emp_id INT NOT NULL,  name VARCHAR(45),  salary INT,  PRIMARY KEY (emp_id));
 ```
 
@@ -208,7 +208,7 @@ mysql> CREATE TABLE username_employee2 (  emp_id INT NOT NULL,  name VARCHAR(4
 /user/username/mysql_in/*
 
 ```
-$ sqoop export --connect jdbc:mysql://192.168.10.115:3306/postobondb --username postobon -P --table username_employee2 --export-dir /user/username/mysqlOut
+$ sqoop export --connect jdbc:mysql://192.168.10.115:3306/xmdb --username xm -P --table username_employee2 --export-dir /user/username/mysqlOut
 ```
 
 # TAREA:
