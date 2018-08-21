@@ -2,36 +2,20 @@
 # Curso Big Data - XM, 2018
 # Profesor: Edwin Montoya M. – emontoya@eafit.edu.co
 
-## ->CONECTARSE AL CLUSTER CLOUDERA:
+## CONEXIÓN AL CLUSTER
 
-### Conectarse a la VPN
+Ambari Web
 
-### Desde la estación Cliente Windows desde Internet:
+    https://hortonX.dis.eafit.edu.co (reemplace X por el numero de servidor asignado)
 
-* Descargar putty.exe y colocarlo en el Escritorio.
-* Ejecutar putty.exe
+Terminal:
 
-      Host Name (or IP address):
-      192.168.10.115
+    https://shellX.dis.eafit.edu.co (reemplace X por el numero de servidor asignado)
 
-      Port: 22 (dejarlo asi):
+Usuarios:
 
-      Click en "Open"
-
-      login as: xm##      (usuario asignado)
-      password: ********        (password asignado)
-
-### Desde una estación Linux o Mac desde Internet:
-
-* Abrir una terminal
-
-      user@hostname$ ssh xm##@192.168.10.115
-      Passoword: ***** (password asignado a cada usuario)
-
-### Por Web:
-
-* Desde un browser: http://192.168.10.115:8888 (por la Intranet via VPN)
-* Desde un browser: http://<hostname>.dis.eafit.edu.co (por la Internet)
+    username: xm##curso
+    password: <enviado por email>
 
 
 ## ->DATASETS

@@ -1,0 +1,56 @@
+$ hbase shell
+hbase(main):001:0> help
+hbase(main):002:0> create 'test', 'cf'
+hbase(main):003:0> list 'test'
+hbase(main):004:0>put 'test', 'row1', 'cf:a', 'val1'
+hbase(main):005:0> scan 'test'
+hbase(main):006:0> get 'test', 'row1'
+hbase(main):007:0>put 'test', 'row2', 'cf:b', 'val2'
+hbase(main):008:0>put 'test', 'row3', 'cf:a', 'val3'
+hbase(main):009:0>put 'test', 'row4', 'cf:b', 'val4'
+hbase(main):010:0>put 'test', 'row5', 'cf:a', 'val4'
+
+//listar todos los valores de una columna en una CF:
+
+hbase(main):011:0>scan 'test', {COLUMNS => 'cf:a'} 
+
+Agregar una CF2 comprimida en gzip y in-memory a la tabla 'test', y adicionar una columna 'name', insertando un valor 'pepe el toro':
+
+$ hbase shell
+hbase(main):001:0> disable 'test'
+
+hbase(main):002:0> alter 'test','cf2', {NAME => 'cf2', COMPRESSION => 'GZ'}, {NAME => 'cf2', IN_MEMORY => 'true'}
+
+hbase(main):003:0>enable 'test'
+
+hbase(main):004:0>put 'test', 'row2', 'cf2:name', 'pepe el toro'
+
+** Namespaces
+
+$ hbase shell
+hbase(main):001:0> create_namespace 'emontoya'
+hbase(main):002:0> create 'emontoya:test', 'cf1'
+
+Otros comandos:
+-alter_namespace, drop_namespace, list_namespace, describe_namespace, list_namespace_tables
+
+Por default, las tablas son creadas en 'default'
+
+** HIVE-HBASE
+
+hive>CREATE  TABLE hello (foo INT, bar STRING);
+
+hive>LOAD DATA INPATH 'file.txt' OVERWRITE INTO TABLE hello;
+
+hive> CREATE TABLE my_hbase_table (key INT, value STRING) STORED by 'org.apache.hadoop.hive.hbase.HBaseStorageHandler' WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,cf1:val') TBLPROPERTIES ('hbase.table.name' = 'my_hbase_table');
+
+hive> INSERT OVERWRITE TABLE my_hbase_table SELECT * FROM hello;
+
+hive> CREATE EXTERNAL TABLE hbase_sales_fact (key int, product_key string, quantity int, price string) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler' 
+WITH SERDEPROPERTIES ("hbase.columns.mapping" = ":key,cf:pdk,cf:q,cf:up") 
+TBLPROPERTIES("hbase.table.name" = "sales_fact"); 
+
+hive> SELECT * FROM hbase_sales_fact;
+
+
