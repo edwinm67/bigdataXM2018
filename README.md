@@ -26,22 +26,19 @@ Usuarios:
 
 * [HDFS](01-hdfs)
 
-## 2. PROCESAMIENTO - MAP/REDUCE
+## 2. Lenguaje PIG
 
-* [MapReduce](02-mapreduce)
+* [Pig](02-pig)
 
-## 3. Lenguaje PIG
+## 3. Bases de datos SQL - Hive y Sqoop
 
-* [Pig](03-pig)
+* [Hive-Sqoop](03-hive)
 
-## 4. Bases de datos SQL - Hive y Sqoop
+## 4. Spark
 
-* [Hive-Sqoop](04-hive-sqoop)
+* [Spark](04-spark)
 
 ## 5. Bases de datos No SQL - Columnares - Hbase
 
 * [Hbase](05-hbase)
 
-## 6. Spark
-
-* [Spark](06-spark)
